@@ -38,8 +38,8 @@ gem "bootsnap", require: false
 
 gem 'spring-commands-rspec', group: :development
 
-gem 'rubocop'
-gem 'rubocop-rails'
+gem 'rubocop', "~> 1.36"
+gem 'rubocop-rails', "~> 2.17"
 
 group :development, :test do
   # See https://guides.rubyonrails.org/debugging_rails_applications.html#debugging-with-the-debug-gem

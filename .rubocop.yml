@@ -1,4 +1,5 @@
 AllCops:
+  NewCops: disable
   Exclude:
     - db/migrate/**/*
     - db/schema.rb
@@ -13,6 +14,7 @@ AllCops:
     - Gemfile
     - Rakefile
     - config.ru
+    - vendor/bundle/**/*
 
 require:
   - rubocop-rails
@@ -66,4 +68,5 @@ Rails/HasAndBelongsToMany:
   Enabled: false
 
 Metrics/BlockLength:
-  IgnoredMethods: ['describe', 'context']
+  AllowedMethods: ['describe', 'context']
+
