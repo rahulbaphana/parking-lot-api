@@ -17,11 +17,23 @@ RSpec.describe "/parking_lots", type: :request do
   # ParkingLot. As you add validations to ParkingLot, be sure to
   # adjust the attributes here as well.
   let(:valid_attributes) do
-    skip("Add a hash of attributes valid for your model")
+    {
+      name:         "ParkingLot at mall",
+      fee_model:    "MALL",
+      small_spots:  10,
+      medium_spots: 11,
+      large_spots:  12
+    }
   end
 
   let(:invalid_attributes) do
-    skip("Add a hash of attributes invalid for your model")
+    {
+      name:         nil,
+      fee_model:    nil,
+      small_spots:  nil,
+      medium_spots: nil,
+      large_spots:  nil
+    }
   end
 
   # This should return the minimal set of values that should be in the headers
@@ -85,7 +97,10 @@ RSpec.describe "/parking_lots", type: :request do
   describe "PATCH /update" do
     context "with valid parameters" do
       let(:new_attributes) do
-        skip("Add a hash of attributes valid for your model")
+        {
+          name:        "This is new name",
+          small_spots: 12
+        }
       end
 
       it "updates the requested parking_lot" do
@@ -93,7 +108,8 @@ RSpec.describe "/parking_lots", type: :request do
         patch parking_lot_url(parking_lot),
               params: { parking_lot: new_attributes }, headers: valid_headers, as: :json
         parking_lot.reload
-        skip("Add assertions for updated state")
+        expect(parking_lot.name).to eq(new_attributes[:name])
+        expect(parking_lot.small_spots).to eq(new_attributes[:small_spots])
       end
 
       it "renders a JSON response with the parking_lot" do

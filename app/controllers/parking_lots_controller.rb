@@ -31,6 +31,8 @@ class ParkingLotsController < ApplicationController
     else
       render json: @parking_lot.errors, status: :unprocessable_entity
     end
+  rescue ActiveModel::ForbiddenAttributesError
+    render json: { invalid_param_attributes: params }, status: :unprocessable_entity
   end
 
   # DELETE /parking_lots/1
@@ -47,6 +49,7 @@ class ParkingLotsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def parking_lot_params
-    params.fetch(:parking_lot, {})
+    params.fetch(:parking_lot, {}).permit(:name, :fee_model, :small_spots, :medium_spots,
+                                          :large_spots)
   end
 end
