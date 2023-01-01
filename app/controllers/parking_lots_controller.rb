@@ -49,7 +49,10 @@ class ParkingLotsController < ApplicationController
 
   # Only allow a list of trusted parameters through.
   def parking_lot_params
-    params.fetch(:parking_lot, {}).permit(:name, :fee_model, :small_spots, :medium_spots,
+    params.fetch(:parking_lot, {}).permit(:name,
+                                          :fee_model,
+                                          :small_spots,
+                                          :medium_spots,
                                           :large_spots)
   end
 end
