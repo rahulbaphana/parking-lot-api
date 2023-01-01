@@ -17,29 +17,24 @@
 
 ---
 ### Development:
-#### 1. Build project and run tests
+#### 1. Build project 
 ```shell
-$ 
+bundle install
 ```
 
-#### 2. Format
+#### 2. Run all tests
 ```shell
-$ 
+bundle exec rspec
 ```
 
-#### 3. Verify formatting
+#### 3. Format
 ```shell
-$ 
+bundle exec rubocop -a
 ```
 
-#### 4. Verify coverage
+#### 4. Verify formatting
 ```shell
-$ 
-```
-
-#### 5. Generate coverage report
-```shell
-$ 
+bundle exec rubocop
 ```
 
 ---
