@@ -5,7 +5,7 @@
 
 ---
 ### Tech-stack
-1. [Ruby 3.1.3](https://www.ruby-lang.org/en/news/2022/11/24/ruby-3-1-3-released/)
+1. [Ruby 3.2.0](https://www.ruby-lang.org/en/news/2022/12/25/ruby-3-2-0-released/)
 2. [Rails 7.0.4](https://rubygems.org/gems/rails/versions/7.0.4)
 3. [RSpec](https://rspec.info/)
 4. [Rubocop](https://rubocop.org/)

@@ -1,7 +1,6 @@
 require_relative "boot"
 
 require "rails/all"
-require 'dotenv/load'
 
 # Require the gems listed in Gemfile, including any gems
 # you've limited to :test, :development, or :production.
@@ -24,11 +23,5 @@ module ParkingLotApi
     # Middleware like session, flash, cookies can be added back manually.
     # Skip views, helpers and assets when generating a new resource.
     config.api_only = true
-
-    if ['development', 'test'].include? ENV['RAILS_ENV']
-      Dotenv::Railtie.load
-    end
-
-    HOSTNAME = ENV['HOSTNAME']
   end
 end
