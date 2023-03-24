@@ -34,10 +34,22 @@ RSpec.describe "/parking_lots", type: :request do
   end
 
   describe "GET /show" do
-    it "renders a successful response" do
-      parking_lot = ParkingLot.create! valid_attributes
-      get parking_lot_url(parking_lot), as: :json
-      expect(response).to be_successful
+    context "valid id to show" do
+      it "renders a successful response" do
+        parking_lot = ParkingLot.create! valid_attributes
+        get parking_lot_url(parking_lot), as: :json
+        expect(response).to be_successful
+      end
+    end
+
+    context "invalid id to /show" do
+      it "fails with error response" do
+        parking_lot = ParkingLot.create! valid_attributes
+        get parking_lot_url(parking_lot) << "1", as: :json
+        expect(response.status).to eq(404)
+        expect(response.body).to eq("{\"code\":\"api.parking.lot\",\
+\"message\":\"Record not found with id #{parking_lot.id}1\"}")
+      end
     end
   end
 
