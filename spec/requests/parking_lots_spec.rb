@@ -34,7 +34,7 @@ RSpec.describe "/parking_lots", type: :request do
   end
 
   describe "GET /show" do
-    context "valid id to show" do
+    context "valid id" do
       it "renders a successful response" do
         parking_lot = ParkingLot.create! valid_attributes
         get parking_lot_url(parking_lot), as: :json
@@ -42,7 +42,7 @@ RSpec.describe "/parking_lots", type: :request do
       end
     end
 
-    context "invalid id to /show" do
+    context "invalid id" do
       it "fails with error response" do
         parking_lot = ParkingLot.create! valid_attributes
         get parking_lot_url(parking_lot) << "1", as: :json
